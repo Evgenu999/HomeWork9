@@ -2,21 +2,23 @@
 // которая найдёт сумму натуральных элементов в промежутке от M до N.
 
 
-string GetSumSequence(int m, int n)
+int GetSumSequence(int m, int n)
 {
-    if (n == m) 
+    if (m == n)
     {
-        return Convert.ToString(m); 
+        return m;
     }
-    else
-    {
-        return GetSumSequence(m, (n - 1)) + " " + n;
-    }
+
+    int sum = m + GetSumSequence(m + 1, n);
+    return sum;
 }
 
 Console.WriteLine("Введите число m: ");
 int m = Convert.ToInt32(Console.ReadLine());
+
 Console.WriteLine("Введите число n: ");
 int n = Convert.ToInt32(Console.ReadLine());
-string result = GetSumSequence(m, n);
-Console.WriteLine(result);
+
+
+int sum = GetSumSequence(m, n);
+Console.WriteLine($"Сумма чисел от {m} до {n} = {sum}");
