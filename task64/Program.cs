@@ -4,13 +4,15 @@
 
 string GetSequenceDigits(int num)
 {
-    if (num == 1) 
+    if (num == 1)
     {
-        return "1"; 
+        return "1";
     }
     else
     {
-        return GetSequenceDigits(num - 1) + " " + num;
+        // string result = num + " " + GetSequenceDigits(num - 1);  можно так
+        // return result; 
+        return num + " " + GetSequenceDigits(num - 1); // так лучше
     }
 }
 
